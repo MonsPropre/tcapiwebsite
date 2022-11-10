@@ -8,28 +8,9 @@
     <p id="jsonData"></p>
     <script>
       fetch('https://arealiferp.fr/api/website.php')
-        .then(
-          function(response) {
-            if (response.result !== "success") {
-              console.log('Looks like there was a problem. Status Code: ' +
-                response.status);
-              const obj = {result: "error"};
-              const myJSON = JSON.stringify(obj);
-              document.getElementById("jsonData").innerHTML = myJSON;
-            }
-
-            // Examine the text in the response
-            response.json().then(function(data) {
-              console.log(data);
-              const obj = {result: "success", status: "online"};
-              const myJSON = JSON.stringify(obj);
-              document.getElementById("jsonData").innerHTML = myJSON;
-            });
-          }
-        )
-        .catch(function(err) {
-          console.log('Fetch Error :-S', err);
-        });
+      .then(function(response) {
+        return document.getElementById("jsonData").innerHTML = response;
+      })
     </script>
     
   </body>

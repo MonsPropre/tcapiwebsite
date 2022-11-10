@@ -13,12 +13,16 @@
             if (response.result !== "success") {
               console.log('Looks like there was a problem. Status Code: ' +
                 response.status);
-              return;
+              const obj = {result: "error"};
+              const myJSON = JSON.stringify(obj);
+              return myJSON;
             }
 
             // Examine the text in the response
             response.json().then(function(data) {
               console.log(data);
+              const obj = {result: "success", status: "online"};
+              const myJSON = JSON.stringify(obj);
             });
           }
         )

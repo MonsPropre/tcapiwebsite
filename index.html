@@ -5,7 +5,7 @@
     <title>API</title>
   </head>
   <body>
-    
+    <p id="jsonData"></p>
     <script>
       fetch('https://arealiferp.fr/api/website.php')
         .then(
@@ -15,7 +15,7 @@
                 response.status);
               const obj = {result: "error"};
               const myJSON = JSON.stringify(obj);
-              return myJSON;
+              document.getElementById("jsonData").innerHTML = myJSON;
             }
 
             // Examine the text in the response
@@ -23,6 +23,7 @@
               console.log(data);
               const obj = {result: "success", status: "online"};
               const myJSON = JSON.stringify(obj);
+              document.getElementById("jsonData").innerHTML = myJSON;
             });
           }
         )

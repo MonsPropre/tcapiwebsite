@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>API</title>
+  </head>
+  <body>
+    
+    <script>
+      fetch('https://arealiferp.fr/api/website.php')
+        .then(
+          function(response) {
+            if (response.result !== "success") {
+              console.log('Looks like there was a problem. Status Code: ' +
+                response.status);
+              return;
+            }
+
+            // Examine the text in the response
+            response.json().then(function(data) {
+              console.log(data);
+            });
+          }
+        )
+        .catch(function(err) {
+          console.log('Fetch Error :-S', err);
+        });
+    </script>
+    
+  </body>
+</html>

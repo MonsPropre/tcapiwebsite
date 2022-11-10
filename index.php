@@ -5,6 +5,6 @@
     <title>API</title>
   </head>
   <body>
-    <a ping="https://arealiferp.fr/">
+    <?= "test"; ?>
   </body>
 </html>
